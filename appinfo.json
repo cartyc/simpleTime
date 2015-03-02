@@ -7,7 +7,13 @@
     "longName": "simpleTime",
     "projectType": "native",
     "resources": {
-        "media": []
+        "media": [
+            {
+                "file": "fonts/Lato-Bold.ttf",
+                "name": "LATO_BOLD_42",
+                "type": "font"
+            }
+        ]
     },
     "sdkVersion": "2",
     "shortName": "simpleTime",
