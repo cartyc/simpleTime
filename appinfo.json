@@ -12,6 +12,12 @@
     "resources": {
         "media": [
             {
+                "file": "images/download.png",
+                "menuIcon": true,
+                "name": "WATCHFACE_ICON",
+                "type": "png"
+            },
+            {
                 "file": "fonts/Lato-Regular.ttf",
                 "name": "LATO_REGULAR_20",
                 "type": "font"
