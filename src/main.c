@@ -55,7 +55,7 @@ static void main_window_load(Window *window){
   text_layer_set_background_color(s_weather_layer, GColorClear);
   text_layer_set_text_color(s_weather_layer, GColorBlack);
   text_layer_set_text_alignment(s_weather_layer, GTextAlignmentCenter);
-  text_layer_set_text(s_weather_layer, "`");
+  text_layer_set_text(s_weather_layer, "");
   
   s_weather_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_LATO_REGULAR_20));
   text_layer_set_font(s_weather_layer, s_weather_font);
@@ -79,7 +79,7 @@ static void main_window_unload(Window *window){
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed){
   update_time();
   
-  if (tick_time -> tm_min % 30 == 0){
+  if (tick_time->tm_min % 15 == 0){
     //Begin Dict
     DictionaryIterator *iter;
     app_message_outbox_begin(&iter);
@@ -115,7 +115,7 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
         APP_LOG(APP_LOG_LEVEL_ERROR, "Key %d not recognized!", (int)t->key);
           break;
     }
-    snprintf(weather_layer_buffer, sizeof(weather_layer_buffer), "%s, %s", temperature_buffer, conditions_buffer);
+    snprintf(weather_layer_buffer, sizeof(weather_layer_buffer), "%s %s", temperature_buffer, conditions_buffer);
     text_layer_set_text(s_weather_layer, weather_layer_buffer);
     t = dict_read_next(iterator);
   }
